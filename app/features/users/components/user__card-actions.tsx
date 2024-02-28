@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Button, Group } from "@mantine/core";
+import { Button, Group, useMantineTheme } from "@mantine/core";
 import { IconUserPlus, IconUserMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 import { UserActionsProps } from "../users.interface";
@@ -12,12 +12,12 @@ const UserActions = ({
   handleDeleteUser,
   handleFollowUser,
 }: UserActionsProps) => {
+  const theme = useMantineTheme();
+  const xss = theme.spacing.xss;
+  const mds = theme.spacing.mds;
+
   return (
-    <Group
-      wrap="nowrap"
-      mt="calc(0.9375rem * var(--mantine-scale))"
-      gap="calc(0.3125rem * var(--mantine-scale))"
-    >
+    <Group wrap="nowrap" mt={mds} gap={xss}>
       {isFollow ? (
         <Button
           variant="default"
